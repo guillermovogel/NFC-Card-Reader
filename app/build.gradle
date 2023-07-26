@@ -52,7 +52,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.guillermovogel'
-                artifactId = 'nfc_reader'
+                artifactId = 'nfc_card_reader'
                 version = '1.0'
             }
         }
