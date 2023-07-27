@@ -1,7 +1,6 @@
 package com.vogel.nfc_reader.nfc.implementations
 
 import android.app.Activity
-import android.content.Context
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.TagLostException
@@ -73,19 +72,10 @@ class ListenerImplementation constructor(
     }
 
     /**
-     * This function allows the user to open the NFC settings on their device
-     * if they have NFC disabled, in order to enable it.
-     * This function can be removed if not necessary.
+     * When a tag is discovered or detected, this function is called.
+     * If the tag is successfully read, then the result is emitted, otherwise
+     * an error is emitted with the corresponding error message.
      */
-    override fun openSettings(context: Context) {
-        cardReader.openSettings(context)
-    }
-
-    /**
-    * When a tag is discovered or detected, this function is called.
-    * If the tag is successfully read, then the result is emitted, otherwise
-    * an error is emitted with the corresponding error message.
-    */
     override fun onTagDiscovered(tag: Tag?) {
         _nfcStatus.tryEmit(NFCState.StartReading)
         val isoDep = IsoDep.get(tag)

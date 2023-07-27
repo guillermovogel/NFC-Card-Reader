@@ -39,5 +39,3 @@ sealed class NFCState {
     data class Error(val throwable: Throwable) : NFCState()
     data class Success(val card: Card) : NFCState()
 }
-
-val ACTION_NFC_SETTINGS = Intent(Settings.ACTION_NFC_SETTINGS)
